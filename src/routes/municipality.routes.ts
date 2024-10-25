@@ -12,7 +12,11 @@ const setAllMunicipalityRoutes = (elysia: Elysia) => {
     )
     .get("/municipalities/count", () =>
       MunicipalityService.getMunicipalitycount()
-    ); // Corrected the endpoint
+    ) // Corrected the endpoint
+
+    .get("/municipalities/count-by-ward", () =>
+      MunicipalityService.getWardCountByMunicipality()
+    ); // Get count of wards by municipality
 };
 
 export default setAllMunicipalityRoutes;

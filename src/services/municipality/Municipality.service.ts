@@ -46,5 +46,17 @@ class MunicipalityService {
     );
     return data;
   }
+
+  getWardCountByMunicipality() {
+    const data = this.db
+      .prepare(
+        `SELECT municipality.municipality_title, COUNT(wards.id) AS ward_count
+       FROM wards
+       JOIN municipality ON wards.municipality_id = municipality.id
+       GROUP BY municipality.municipality_title`
+      )
+      .all(); // Execute the query
+    return data;
+  }
 }
 export default new MunicipalityService();
