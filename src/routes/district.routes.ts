@@ -19,7 +19,8 @@ const setAllDistrictRoutes = (elysia: Elysia) => {
     .get("/districts/count", () => DistrictService.getDistrictcount()) // Get district count
     .get("/districts/count-by-province", () =>
       DistrictService.getDistrictCountByProvince()
-    ); // Get count of districts by province
+    ) // Get count of districts by province
+    .get("/districts/count-by-municipality", () =>
+      DistrictService.getMunicipalityCountByDistrict()
+    );
 };
-
-export default setAllDistrictRoutes;

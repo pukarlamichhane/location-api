@@ -74,6 +74,18 @@ class DistrictService {
       .all(); // Execute the query
     return data;
   }
+
+  getMunicipalityCountByDistrict() {
+    const data = this.db
+      .prepare(
+        `SELECT district.district_title, COUNT(municipality.id) AS municipality_count
+       FROM municipality
+       JOIN district ON municipality.districtid = district.id
+       GROUP BY district.district_title`
+      )
+      .all(); // Execute the query
+    return data;
+  }
 }
 
 export default new DistrictService();
