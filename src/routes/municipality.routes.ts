@@ -10,7 +10,9 @@ const setAllMunicipalityRoutes = (elysia: Elysia) => {
     .get("/municipalities/:id/wards", ({ params: { id } }) =>
       MunicipalityService.getWardByMunicipalityId(id)
     )
-    .get("/Municipality/count", MunicipalityService.getMunicipalitycount());
+    .get("/municipalities/count", () =>
+      MunicipalityService.getMunicipalitycount()
+    ); // Corrected the endpoint
 };
 
 export default setAllMunicipalityRoutes;

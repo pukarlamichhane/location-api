@@ -57,9 +57,9 @@ class DistrictService {
   }
 
   getDistrictcount() {
-    const data = this.db.prepare(
-      `SELECT COUNT(*) AS district_count FROM district`
-    );
+    const data = this.db
+      .prepare(`SELECT COUNT(*) AS district_count FROM district`)
+      .get();
     return data;
   }
 }

@@ -13,7 +13,7 @@ const setAllDistrictRoutes = (elysia: Elysia) => {
     .get("/districts/:id/wards", ({ params: { id } }) =>
       DistrictService.getWardByDistrictId(id)
     )
-    .get("/districts/count", DistrictService.getDistrictcount());
+    .get("/districts/count", () => DistrictService.getDistrictcount());
 };
 
 export default setAllDistrictRoutes;
