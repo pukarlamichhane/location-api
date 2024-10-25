@@ -62,6 +62,18 @@ class DistrictService {
       .get();
     return data;
   }
+
+  getDistrictCountByProvince() {
+    const data = this.db
+      .prepare(
+        `SELECT province.province_title, COUNT(district.id) AS district_count
+       FROM district
+       JOIN province ON district.provinceid = province.id
+       GROUP BY province.province_title`
+      )
+      .all(); // Execute the query
+    return data;
+  }
 }
 
 export default new DistrictService();
