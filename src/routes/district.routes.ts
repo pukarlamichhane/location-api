@@ -22,5 +22,16 @@ const setAllDistrictRoutes = (elysia: Elysia) => {
     ) // Get count of districts by province
     .get("/districts/count-by-municipality", () =>
       DistrictService.getMunicipalityCountByDistrict()
-    );
+    ) // Get count of municipalities by district
+    .get("/wards/count-by-district", () =>
+      DistrictService.getWardCountByDistrict()
+    ) // Get count of wards by district
+    .get("/municipalities/count-by-province", () =>
+      DistrictService.getMunicipalityCountByProvince()
+    ) // Get count of municipalities by province
+    .get("/wards/count-by-province", () =>
+      DistrictService.getWardCountByProvince()
+    ); // Get count of wards by province
 };
+
+export default setAllDistrictRoutes;
